@@ -71,6 +71,10 @@ public enum Item {
         item.setItemMeta(meta);
     }
 
+    public boolean checkHas(Player player) {
+        return player.getInventory().containsAtLeast(item, 1);
+    }
+
     public void give(Player player) {
         player.getInventory().addItem(new ItemStack(item));
     }

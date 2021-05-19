@@ -46,6 +46,7 @@ public final class TeamTp extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        saveDefaultConfig();
         locationConfFile = new File(getDataFolder(), "teams.yml");
         if (locationConfFile.exists()) {
             locationConfig = YamlConfiguration.loadConfiguration(locationConfFile);
@@ -123,7 +124,9 @@ public final class TeamTp extends JavaPlugin {
                                     final Location location = getLocationConfig().getLocation(locationKey.get());
                                     if (location == null) throw new IllegalStateException("Unable to load location.");
                                     player.teleport(location);
-                                    Item.SLAP_SALMON.give(player);
+                                    if (getConfig().getBoolean("always-give-item") || !Item.SLAP_SALMON.checkHas(player)) {
+                                        Item.SLAP_SALMON.give(player);
+                                    }
                                 } else {
                                     sender.sendMessage("That location is not present.");
                                 }

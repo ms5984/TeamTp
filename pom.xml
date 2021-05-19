@@ -6,7 +6,7 @@
 
     <groupId>com.github.ms5984.survivelist</groupId>
     <artifactId>team-tp</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>TeamTp</name>
